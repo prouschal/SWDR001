@@ -217,7 +217,7 @@ lr11xx_status_t lr11xx_system_get_errors( const void* context, lr11xx_system_err
         ( uint8_t ) ( LR11XX_SYSTEM_GET_ERRORS_OC >> 8 ),
         ( uint8_t ) ( LR11XX_SYSTEM_GET_ERRORS_OC >> 0 ),
     };
-    uint8_t rbuffer[sizeof( errors )] = { 0x00 };
+    uint8_t rbuffer[sizeof( *errors )] = { 0x00 };
 
     const lr11xx_status_t status = ( lr11xx_status_t ) lr11xx_hal_read(
         context, cbuffer, LR11XX_SYSTEM_GET_ERRORS_CMD_LENGTH, rbuffer, sizeof( *errors ) );
